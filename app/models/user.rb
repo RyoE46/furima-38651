@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, uniqueness: { case_sensitive: false }
+  validates :email, presence: true
   validates :nickname, presence: true
   validates :password, format: { with:/\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6,100}+\z/i}
   validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶヴー]+\z/}
   validates :birthday, presence: true
 
-  has_many   :items
-  has_many   :orders
+  #has_many   :items
+  #has_many   :orders
 
 end
