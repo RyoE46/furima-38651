@@ -1,7 +1,16 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :set_item
+
   def index
+    @shipping_order = ShippingOrder.new
+    if @item.order.present?
+      redirect_to root_path
+    else
+      if current_user.id == @item.user_id
+        redirect_to root_path
+      end  
+    end
   end
 
   def new
@@ -32,9 +41,9 @@ class OrdersController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: order_params[:price],  # 商品の値段
-      card: order_params[:token],    # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      amount: @item.price,
+      card: order_params[:token],
+      currency: 'jpy'
     )
   end
 
