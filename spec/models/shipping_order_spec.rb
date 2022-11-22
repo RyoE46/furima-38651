@@ -32,7 +32,7 @@ RSpec.describe ShippingOrder, type: :model do
       it 'post_codeが「3桁 - 4桁]の半角文字列でないと保存できない' do
         @shipping_order.post_code = '1234567'
         @shipping_order.valid?
-        expect(@shipping_order.errors.full_messages).to include "Post code is invalid. Include hyphen(-)"
+        expect(@shipping_order.errors.full_messages).to include 'Post code is invalid. Include hyphen(-)'
       end
       it 'area_idを選択していないと保存できない' do
         @shipping_order.area_id = ''
@@ -62,17 +62,17 @@ RSpec.describe ShippingOrder, type: :model do
       it 'phone_numberは半角数字以外だと保存できない' do
         @shipping_order.phone_number = 'ghfghjhfgh'
         @shipping_order.valid?
-        expect(@shipping_order.errors.full_messages).to include "Phone number is invalid"
+        expect(@shipping_order.errors.full_messages).to include 'Phone number is invalid'
       end
       it 'phone_numberは9桁以下だと保存できない' do
         @shipping_order.phone_number = '12345678'
         @shipping_order.valid?
-        expect(@shipping_order.errors.full_messages).to include "Phone number is invalid"
+        expect(@shipping_order.errors.full_messages).to include 'Phone number is invalid'
       end
       it 'phone_numberは12桁以上だと保存できない' do
         @shipping_order.phone_number = '566543357864534676545'
         @shipping_order.valid?
-        expect(@shipping_order.errors.full_messages).to include "Phone number is invalid"
+        expect(@shipping_order.errors.full_messages).to include 'Phone number is invalid'
       end
       it 'userが紐付いていないと保存できない' do
         @shipping_order.user_id = ''
