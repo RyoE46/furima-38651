@@ -13,7 +13,7 @@ RSpec.describe ShippingOrder, type: :model do
         expect(@shipping_order).to be_valid
       end
       it 'buildingは空でも保存できる' do
-        building = ''
+        @shipping_order.building = nil
         expect(@shipping_order).to be_valid
       end
     end
