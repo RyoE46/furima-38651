@@ -40,10 +40,10 @@
       </h1>
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">カード情報</label>
+          <label for="number">カード番号</label>
           <span class="indispensable">必須</span>
         </div>
-        <div id="number-form" class="input-default"></div>
+        <div id="number-form" class="payjs-outer input-default"></div>
         <div class='available-card'>
           <%= image_tag 'card-visa.gif', class: 'card-logo'%>
           <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
@@ -53,19 +53,19 @@
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">有効期限</label>
+          <label for="exp-date">有効期限</label>
           <span class="indispensable">必須</span>
         </div>
         <div class='input-expiration-date-wrap'>
-          <div id="expiry-form" class="input-default"></div>
+          <div id="expiry-form" class="payjs-outer input-default"></div>
         </div>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">セキュリティコード</label>
+          <label for="cvc">CVC</label>
           <span class="indispensable">必須</span>
         </div>
-        <div id="cvc-form" class="input-default"></div>
+        <div id="cvc-form" class="payjs-outer input-default"></div>
       </div>
     </div>
     <%# /カード情報の入力 %>
